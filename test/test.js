@@ -101,11 +101,3 @@ test.serial(
   }
 );
 
-test.serial('copy the file according to destDir option', async (t) => {
-  await run(t, 'png', {
-    limit: 10,
-    emitFiles: true,
-    fileName: '[dirname][hash][extname]',
-    destDir: join(__dirname, 'output/dest')
-  });
-});

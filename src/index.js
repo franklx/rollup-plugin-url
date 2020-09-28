@@ -76,33 +76,18 @@ export default function url(options = {}) {
       // Allow skipping saving files for server side builds.
       if (!emitFiles) return;
 
-      const base = options.destDir || outputOptions.dir || path.dirname(outputOptions.file);
-
-      await makeDir(base);
-
       await Promise.all(
-        Object.keys(copies).map(async (name) => {
-          const output = copies[name];
-          // Create a nested directory if the fileName pattern contains
-          // a directory structure
-          const outputDirectory = path.join(base, path.dirname(output));
-          await makeDir(outputDirectory);
-          return copy(name, path.join(base, output));
-        })
+        Object.keys(copies).map(async (name) =>
+          this.emitFile({
+            type: "asset",
+            name: path.basename(name),
+            fileName: copies[name],
+            source: fs.readFileSync(name),
+          })
+        )
       );
     }
   };
-}
-
-function copy(src, dest) {
-  return new Promise((resolve, reject) => {
-    const read = fs.createReadStream(src);
-    read.on('error', reject);
-    const write = fs.createWriteStream(dest);
-    write.on('error', reject);
-    write.on('finish', resolve);
-    read.pipe(write);
-  });
 }
 
 // https://github.com/filamentgroup/directory-encoder/blob/master/lib/svg-uri-encoder.js
