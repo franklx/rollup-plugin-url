@@ -2,14 +2,13 @@ import crypto from 'crypto';
 import path from 'path';
 import util from 'util';
 import fs from 'fs';
-import 'make-dir';
 import mime from 'mime';
 import { createFilter } from '@rollup/pluginutils';
 
 const fsStatPromise = util.promisify(fs.stat);
 const fsReadFilePromise = util.promisify(fs.readFile);
 const { posix, sep } = path;
-const defaultInclude = ['**/*.svg', '**/*.png', '**/*.jpg', '**/*.gif'];
+const defaultInclude = ['**/*.svg', '**/*.png', '**/*.jp(e)?g', '**/*.gif', '**/*.webp'];
 
 function url(options = {}) {
   const {

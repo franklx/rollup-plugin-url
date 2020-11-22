@@ -4,7 +4,6 @@ var crypto = require('crypto');
 var path = require('path');
 var util = require('util');
 var fs = require('fs');
-require('make-dir');
 var mime = require('mime');
 var pluginutils = require('@rollup/pluginutils');
 
@@ -19,7 +18,7 @@ var mime__default = /*#__PURE__*/_interopDefaultLegacy(mime);
 const fsStatPromise = util__default['default'].promisify(fs__default['default'].stat);
 const fsReadFilePromise = util__default['default'].promisify(fs__default['default'].readFile);
 const { posix, sep } = path__default['default'];
-const defaultInclude = ['**/*.svg', '**/*.png', '**/*.jpg', '**/*.gif'];
+const defaultInclude = ['**/*.svg', '**/*.png', '**/*.jp(e)?g', '**/*.gif', '**/*.webp'];
 
 function url(options = {}) {
   const {

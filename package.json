@@ -46,13 +46,12 @@
   },
   "dependencies": {
     "@rollup/pluginutils": "^3.1.0",
-    "make-dir": "^3.1.0",
     "mime": "^2.4.6"
   },
   "devDependencies": {
     "del": "^5.1.0",
     "globby": "^11.0.1",
-    "rollup": "^2.23.0"
+    "rollup": "^2.33.3"
   },
   "ava": {
     "babel": {
