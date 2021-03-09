@@ -1,15 +1,14 @@
 {
-  "name": "@rollup/plugin-url",
-  "version": "5.0.1",
+  "name": "rollup-plugin-url-emit",
+  "version": "1.0.0",
   "publishConfig": {
     "access": "public"
   },
-  "description": "Import files as data-URIs or ES Modules",
+  "description": "Import files as data-URIs or ES Modules using emitFile",
   "license": "MIT",
-  "repository": "rollup/plugins",
-  "author": "Arpad Borsos <arpad.borsos@googlemail.com>",
-  "homepage": "https://github.com/rollup/plugins/tree/master/packages/url/#readme",
-  "bugs": "https://github.com/rollup/plugins/issues",
+  "repository": "https://github.com/franklx/rollup-plugin-url-emit",
+  "author": "Franco Lucchini <flucchini@gmail.com>",
+  "homepage": "https://github.com/franklx/rollup-plugin-url-emit/#readme",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "engines": {
@@ -18,16 +17,9 @@
   "scripts": {
     "build": "rollup -c",
     "ci:coverage": "nyc pnpm run test && nyc report --reporter=text-lcov > coverage.lcov",
-    "ci:lint": "pnpm run build && pnpm run lint",
-    "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
     "ci:test": "pnpm run test -- --verbose",
-    "lint": "pnpm run lint:js && pnpm run lint:docs && pnpm run lint:package",
-    "lint:docs": "prettier --single-quote --arrow-parens avoid --trailing-comma none --write README.md",
-    "lint:js": "eslint --fix --cache src test --ext .js,.ts",
-    "lint:package": "prettier --write package.json --plugin=prettier-plugin-package",
     "prebuild": "del-cli dist",
     "prepare": "pnpm run build",
-    "prepublishOnly": "pnpm run lint",
     "pretest": "pnpm run build",
     "test": "ava"
   },
@@ -42,15 +34,15 @@
     "url"
   ],
   "peerDependencies": {
-    "rollup": "^1.20.0||^2.0.0"
+    "rollup": "^2.41.0"
   },
   "dependencies": {
-    "@rollup/pluginutils": "^3.1.0",
-    "mime": "^2.4.6"
+    "@rollup/pluginutils": "^4.1.0",
+    "mime": "^2.5.2"
   },
   "devDependencies": {
-    "del": "^5.1.0",
-    "globby": "^11.0.1",
+    "del": "^6.0.0",
+    "globby": "^11.0.2",
     "rollup": "^2.33.3"
   },
   "ava": {

@@ -1,26 +1,26 @@
-[npm]: https://img.shields.io/npm/v/@rollup/plugin-url
-[npm-url]: https://www.npmjs.com/package/@rollup/plugin-url
-[size]: https://packagephobia.now.sh/badge?p=@rollup/plugin-url
-[size-url]: https://packagephobia.now.sh/result?p=@rollup/plugin-url
+[npm]: https://img.shields.io/npm/v/rollup-plugin-url-emit
+[npm-url]: https://www.npmjs.com/package/rollup-plugin-url-emit
+[size]: https://packagephobia.now.sh/badge?p=rollup-plugin-url-emit
+[size-url]: https://packagephobia.now.sh/result?p=rollup-plugin-url-emit
 
 [![npm][npm]][npm-url]
 [![size][size]][size-url]
 [![libera manifesto](https://img.shields.io/badge/libera-manifesto-lightgrey.svg)](https://liberamanifesto.com)
 
-# @rollup/plugin-url
+# 
 
-🍣 A Rollup plugin which imports files as data-URIs or ES Modules.
+Based on [@rollup/plugin-url](https://github.com/rollup/plugins/tree/master/packages/url)
 
 ## Requirements
 
-This plugin requires an [LTS](https://github.com/nodejs/Release) Node version (v8.0.0+) and Rollup v1.20.0+.
+This plugin requires an [LTS](https://github.com/nodejs/Release) Node version (v8.0.0+) and Rollup v2.0.0+.
 
 ## Install
 
 Using npm:
 
 ```console
-npm install @rollup/plugin-url --save-dev
+npm install rollup-plugin-url-emit --save-dev
 ```
 
 ## Usage
@@ -28,7 +28,7 @@ npm install @rollup/plugin-url --save-dev
 Create a `rollup.config.js` [configuration file](https://www.rollupjs.org/guide/en/#configuration-files) and import the plugin:
 
 ```js
-import url from '@rollup/plugin-url';
+import url from 'rollup-plugin-url-emit';
 
 export default {
   input: 'src/index.js',
@@ -124,7 +124,5 @@ url({
 Emitted File: `path/to/image.png`
 
 ## Meta
-
-[CONTRIBUTING](/.github/CONTRIBUTING.md)
 
 [LICENSE (MIT)](/LICENSE)
